@@ -5846,7 +5846,9 @@ Other threads never get a chance to run when you step, and they are
 completely free to run when you use commands
 like @samp{continue}, @samp{until}, or @samp{finish}.  However, unless another
 thread hits a breakpoint during its timeslice, @value{GDBN} does not change
-the current thread away from the thread that you are debugging.
+the current thread away from the thread that you are debugging.  The
+@code{reverse} mode behaves like @code{off} during normal execution
+and like @code{on} during reverse or replay execution.
 
 @item show scheduler-locking
 Display the current scheduler locking mode.
