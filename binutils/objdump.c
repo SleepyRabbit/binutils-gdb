@@ -18,7 +18,20 @@
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, 51 Franklin Street - Fifth Floor, Boston,
-   MA 02110-1301, USA.  */
+   MA 02110-1301, USA.  
+
+   Copyright (c) 2016, The Linux Foundation. All rights reserved.
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 and
+   only version 2 as published by the Free Software Foundation.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+*/
 
 
 /* Objdump overview.
@@ -1130,12 +1143,13 @@ static void
 print_line (struct print_file_list *p, unsigned int line)
 {
   const char *l;
- 
+  int n;
+  
   --line; 
   if (line >= p->maxline)
     return;
   l = p->linemap [line];
-  fwrite (l, 1, strcspn (l, "\n\r"), stdout);
+  n = fwrite (l, 1, strcspn (l, "\n\r"), stdout);
   putchar ('\n');
 } 
 

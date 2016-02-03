@@ -2551,6 +2551,25 @@ CALR offset.
 @deffn {} BFD_RELOC_Z8K_IMM4L
 4 bit value.
 @end deffn
+@deffn {} BFD_RELOC_QUATRO_9_PCREL
+Zoran quatro reloc.
+Signed nine bit pc relative offset for cond branch.
+@end deffn
+@deffn {} BFD_RELOC_QUATRO_11_PCREL
+Zoran quatro reloc.
+Signed eleven bit pc relative offset for cond branch with increment.
+@end deffn
+@deffn {} BFD_RELOC_QUATRO_16
+Zoran quatro reloc.
+16 bit abs address for ld immediate.
+@end deffn
+@deffn {} BFD_RELOC_QUATRO_MV16
+Zoran quatro reloc.
+16 bit abs address for mv immediate.
+@end deffn
+@deffn {} BFD_RELOC_QUATRO_MEMLIT
+quatro immediate address bits 0..2,4..13,19..21.
+@end deffn
 
 @example
 

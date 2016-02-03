@@ -18,7 +18,21 @@ Library General Public License for more details.
 You should have received a copy of the GNU Library General Public
 License along with libiberty; see the file COPYING.LIB.  If not,
 write to the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor,
-Boston, MA 02110-1301, USA.  */
+Boston, MA 02110-1301, USA.  
+
+
+Copyright (c) 2016, The Linux Foundation. All rights reserved.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 and
+only version 2 as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+*/
 
 #include "config.h"
 #include "libiberty.h"
@@ -515,8 +529,10 @@ static FILE *
 pex_unix_fdopenw (struct pex_obj *obj ATTRIBUTE_UNUSED, int fd,
 		  int binary ATTRIBUTE_UNUSED)
 {
+#ifdef F_SETFD
   if (fcntl (fd, F_SETFD, FD_CLOEXEC) < 0)
     return NULL;
+#endif
   return fdopen (fd, "w");
 }
 

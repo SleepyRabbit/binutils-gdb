@@ -17,7 +17,20 @@
    You should have received a copy of the GNU General Public License
    along with GAS; see the file COPYING.  If not, write to the Free
    Software Foundation, 51 Franklin Street - Fifth Floor, Boston, MA
-   02110-1301, USA.  */
+   02110-1301, USA.  
+
+   Copyright (c) 2016, The Linux Foundation. All rights reserved.
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 and
+   only version 2 as published by the Free Software Foundation.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+*/
 
 #include "as.h"
 #include "obstack.h"
@@ -658,7 +671,8 @@ stabs_generate_asm_func (const char *funcname, const char *startlabname)
   char *buf;
   char *file;
   unsigned int lineno;
-
+  int v;
+  
   if (! void_emitted_p)
     {
       input_line_pointer = "\"void:t1=1\",128,0,0,0";
@@ -667,7 +681,7 @@ stabs_generate_asm_func (const char *funcname, const char *startlabname)
     }
 
   as_where (&file, &lineno);
-  asprintf (&buf, "\"%s:F1\",%d,0,%d,%s",
+  v = asprintf (&buf, "\"%s:F1\",%d,0,%d,%s",
 	    funcname, N_FUN, lineno + 1, startlabname);
   input_line_pointer = buf;
   s_stab ('s');
@@ -688,12 +702,13 @@ stabs_generate_asm_endfunc (const char *funcname ATTRIBUTE_UNUSED,
   char *hold = input_line_pointer;
   char *buf;
   char sym[30];
-
+  int v;
+  
   sprintf (sym, "%sendfunc%d", FAKE_LABEL_NAME, label_count);
   ++label_count;
   colon (sym);
 
-  asprintf (&buf, "\"\",%d,0,0,%s-%s", N_FUN, sym, startlabname);
+  v = asprintf (&buf, "\"\",%d,0,0,%s-%s", N_FUN, sym, startlabname);
   input_line_pointer = buf;
   s_stab ('s');
   free (buf);

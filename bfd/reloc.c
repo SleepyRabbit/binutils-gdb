@@ -19,7 +19,20 @@
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston,
-   MA 02110-1301, USA.  */
+   MA 02110-1301, USA.  
+
+   Copyright (c) 2016, The Linux Foundation. All rights reserved.
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 and
+   only version 2 as published by the Free Software Foundation.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+*/
 
 /*
 SECTION
@@ -4993,6 +5006,37 @@ ENUM
   BFD_RELOC_Z8K_IMM4L
 ENUMDOC
   4 bit value.
+
+ENUM
+  BFD_RELOC_QUATRO_9_PCREL
+ENUMDOC
+  Zoran quatro reloc.
+  Signed nine bit pc relative offset for cond branch.
+ENUM
+  BFD_RELOC_QUATRO_11_PCREL
+ENUMDOC
+  Zoran quatro reloc.
+  Signed eleven bit pc relative offset for cond branch with increment.
+ENUM
+  BFD_RELOC_QUATRO_16
+ENUMDOC
+  Zoran quatro reloc.
+  16 bit abs address for ld immediate.
+  also used as low part of 16 bit addr in flexrisc asm
+ENUM
+  BFD_RELOC_QUATRO_MV16
+ENUMDOC
+  Zoran quatro reloc.
+  16 bit abs address for mv immediate.
+  also used as high part of 16 bit addr in flexrisc asm
+ENUM
+  BFD_RELOC_QUATRO_MEMLIT
+ENUMDOC
+  quatro immediate address bits 0..2,4..13,19..21.
+ENUM
+  BFD_RELOC_FLEXRISC_BITN
+ENUMDOC
+  3 bit bit-number immediate in flexrisc tst insn.
 
 ENDSENUM
   BFD_RELOC_UNUSED

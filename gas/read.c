@@ -18,7 +18,20 @@
    You should have received a copy of the GNU General Public License
    along with GAS; see the file COPYING.  If not, write to the Free
    Software Foundation, 51 Franklin Street - Fifth Floor, Boston, MA
-   02110-1301, USA.  */
+   02110-1301, USA.  
+
+   Copyright (c) 2016, The Linux Foundation. All rights reserved.
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 and
+   only version 2 as published by the Free Software Foundation.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+*/
 
 /* If your chars aren't 8 bits, you will change this a bit (eg. to 0xFF).
    But then, GNU isn't spozed to run on your machine anyway.
@@ -5612,7 +5625,8 @@ do_s_func (int end_p, const char *default_prefix)
     {
       char *name, *label;
       char delim1, delim2;
-
+      int v;
+	  
       if (current_name != NULL)
 	{
 	  as_bad (_(".endfunc missing for previous .func"));
@@ -5628,14 +5642,14 @@ do_s_func (int end_p, const char *default_prefix)
       if (*input_line_pointer != ',')
 	{
 	  if (default_prefix)
-	    asprintf (&label, "%s%s", default_prefix, name);
+		  v = asprintf (&label, "%s%s", default_prefix, name);
 	  else
 	    {
 	      char leading_char = bfd_get_symbol_leading_char (stdoutput);
 	      /* Missing entry point, use function's name with the leading
 		 char prepended.  */
 	      if (leading_char)
-		asprintf (&label, "%c%s", leading_char, name);
+			  v = asprintf (&label, "%c%s", leading_char, name);
 	      else
 		label = name;
 	    }

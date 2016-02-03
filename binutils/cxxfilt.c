@@ -20,7 +20,20 @@
    You should have received a copy of the GNU General Public License
    along with GCC; see the file COPYING.  If not, write to the Free
    Software Foundation, 51 Franklin Street - Fifth Floor, Boston, MA
-   02110-1301, USA.  */
+   02110-1301, USA.  
+
+   Copyright (c) 2016, The Linux Foundation. All rights reserved.
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 and
+   only version 2 as published by the Free Software Foundation.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+*/
 
 #include "sysdep.h"
 #include "bfd.h"
@@ -63,12 +76,12 @@ demangle_it (char *mangled_name)
   result = cplus_demangle (mangled_name + skip_first, flags);
 
   if (result == NULL)
-    printf (mangled_name);
+    printf ("%s", mangled_name);
   else
     {
       if (mangled_name[0] == '.')
 	putchar ('.');
-      printf (result);
+      printf ("%s", result);
       free (result);
     }
 }

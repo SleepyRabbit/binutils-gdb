@@ -19,7 +19,20 @@
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston,
-   MA 02110-1301, USA.  */
+   MA 02110-1301, USA.  
+
+   Copyright (c) 2016, The Linux Foundation. All rights reserved.
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 and
+   only version 2 as published by the Free Software Foundation.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+*/
 
 /* Yet another way of extracting documentation from source.
    No, I haven't finished it yet, but I hope you people like it better
@@ -92,6 +105,12 @@
 
 #define DEF_SIZE 5000
 #define STACK 50
+
+#ifdef __MINGW32__
+/* Prevent \r\n\ line endings */
+#include <fcntl.h>
+unsigned int _CRT_fmode = _O_BINARY;
+#endif
 
 int internal_wanted;
 int internal_mode;

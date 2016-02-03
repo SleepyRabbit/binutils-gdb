@@ -27,7 +27,20 @@
 
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  */
+   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA.  
+
+   Copyright (c) 2016, The Linux Foundation. All rights reserved.
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 and
+   only version 2 as published by the Free Software Foundation.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+*/
 
 #ifndef __BFD_H_SEEN__
 #define __BFD_H_SEEN__
@@ -2067,6 +2080,11 @@ enum bfd_architecture
 #define bfd_mach_z80            3 /* With ixl, ixh, iyl, and iyh.  */
 #define bfd_mach_z80full        7 /* All undocumented instructions.  */
 #define bfd_mach_r800           11 /* R800: successor with multiplication.  */
+  bfd_arch_flexrisc,    /* Zoran quatro flexrisc */
+#define bfd_mach_flexrisc              0
+  bfd_arch_quatro,    /* Zoran quatro dsp */
+#define bfd_mach_quatro                0
+#define bfd_mach_quatro_amber  1
   bfd_arch_last
   };
 
@@ -4392,6 +4410,30 @@ BFD_RELOC_XTENSA_ASM_EXPAND.  */
 
 /* 4 bit value.  */
   BFD_RELOC_Z8K_IMM4L,
+
+/* Zoran quatro reloc.
+Signed nine bit pc relative offset for cond branch.  */
+  BFD_RELOC_QUATRO_9_PCREL,
+
+/* Zoran quatro reloc.
+Signed eleven bit pc relative offset for cond branch with increment.  */
+  BFD_RELOC_QUATRO_11_PCREL,
+
+/* Zoran quatro reloc.
+16 bit abs address for ld immediate.
+also used as low part of 16 bit addr in flexrisc asm  */
+  BFD_RELOC_QUATRO_16,
+
+/* Zoran quatro reloc.
+16 bit abs address for mv immediate.
+also used as high part of 16 bit addr in flexrisc asm  */
+  BFD_RELOC_QUATRO_MV16,
+
+/* quatro immediate address bits 0..2,4..13,19..21.  */
+  BFD_RELOC_QUATRO_MEMLIT,
+
+/* 3 bit bit-number immediate in flexrisc tst insn.  */
+  BFD_RELOC_FLEXRISC_BITN,
   BFD_RELOC_UNUSED };
 typedef enum bfd_reloc_code_real bfd_reloc_code_real_type;
 reloc_howto_type *bfd_reloc_type_lookup

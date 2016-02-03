@@ -1989,6 +1989,12 @@ static const char *const bfd_reloc_code_real_names[] = { "@@uninitialized@@",
   "BFD_RELOC_Z8K_DISP7",
   "BFD_RELOC_Z8K_CALLR",
   "BFD_RELOC_Z8K_IMM4L",
+  "BFD_RELOC_QUATRO_9_PCREL",
+  "BFD_RELOC_QUATRO_11_PCREL",
+  "BFD_RELOC_QUATRO_16",
+  "BFD_RELOC_QUATRO_MV16",
+  "BFD_RELOC_QUATRO_MEMLIT",
+  "BFD_RELOC_FLEXRISC_BITN",
  "@@overflow: BFD_RELOC_UNUSED@@",
 };
 #endif
